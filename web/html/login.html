@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="styleSheet" href="../css/first.css">
+</head>
+<body>
+hello login
+<p id="test">hello world</p>
+<button id="putBtn">put</button>
+<button id="delBtn">delete</button>
+<script type="text/javascript" src="../js/jquery/jquery-1.7.min.js"></script>
+<script type="text/javascript">
+
+   <!--更新-->
+    $("#putBtn").bind("click", function () {
+        $.ajax({
+            type: "put",
+            url: "../user/update/13",
+            data: {name: "zhangsan", location: "chengdu"},
+            success: function (msg) {
+                alert("Data Saved: " + msg);
+            }
+        });
+    })
+//删除
+   $("#delBtn").bind("click", function () {
+       $.ajax({
+           type: "DELETE",
+           url: "../user/del/10",
+           success:function (data) {
+               alert(data);
+           }
+       });
+   });
+
+</script>
+</body>
+</html>
